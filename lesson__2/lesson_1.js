@@ -1,18 +1,24 @@
-function isCapitalized(str) {
-  const firstChar = str.split('')[0];
-  const isAChar = new RegExp("^[a-zA-Z]+$");
+const textMy = Object.create( {}, {
+  word: {
+    value: "Name",
+    writable: true,
+    configurable: true,
+    },
+  length: {
+    get: function () {
+      return (this.worde.length)
+    }
+  },
+  isCapitalized:{
+    get: function () {
+      const firstChar = this.word[0];
+      const letterRegExp = new RegExp("^[a-zA-Z]+$");
 
-  if (isAChar.test(firstChar) === false) {
-    return false;
+      if (!letterRegExp.test(firstChar)) {
+        return false;
+      }
+
+      return firstChar === firstChar.toUpperCase();
+    }
   }
-
-  return firstChar === firstChar.toUpperCase() ? true : false;
-}
-
-function textMy (str) {
-  const word = str
-  const lng = str.length
-  const isCap = isCapitalized(str)
-
-  return [word, lng, isCap]
-}
+})

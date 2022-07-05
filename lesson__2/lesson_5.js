@@ -27,23 +27,19 @@ const mapCollbackSalary = function (item) {
 }
 
 function averageSalary(emp) {
-  return emp.map(mapCollbackSalary).reduce((a, b) => a + b, 0) / emp
+  return emp.map(mapCollbackSalary).reduce((a, b) => a + b, 0) / emp.length
 }
 
 function compareSalary(a, b) {
-  const n1 = a.salary
-  const n2 = b.salary
-  if (n1 > n2) return 1;
-  if (n1 == n2) return 0;
-  if (n1 < n2) return -1;
+  return a.salary - b.salary
 }
 
 function sortBySalary(emp) {
   return emp.sort(compareSalary)
 }
 
-function filterEmployees(emp, minSalary, minEge){
-  return emp.filter(e => e.salary >= minSalary && e.age >= minEge)
+function filterEmployees(emp, minSalary, minAge){
+  return emp.filter(e => e.salary >= minSalary && e.age >= minAge)
 }
 
 averageSalary(employees)

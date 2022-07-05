@@ -1,6 +1,6 @@
 const fruits = ['lime', 'orange', 'apple', 'banana', '']
 
-function filterByLength( words, ferstL, lastL) {
-  const result = words.filter(word => word.length >= ferstL && word.length <= lastL)
+function filterByLength( words, firstL, lastL) {
+  const result = words.filter(word => word.length >= firstL && word.length <= lastL)
   return result
 }

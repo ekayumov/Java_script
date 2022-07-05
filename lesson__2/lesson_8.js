@@ -18,13 +18,17 @@ const human = Object.create( {}, {
     }
   },
   dateOfBirth: {
-    // принимаем параметр date
-    set: function (value) {
+    value: '2010-09-20',
+    writable: true,
+    configurable: true
+  },
+  age: {
+    get:  function () {
       var day = 1000 * 60 * 60 * 24
       var now = new Date().getTime()
-      var birthday = value.getTime()
+      var birthday = new Date(this.dateOfBirth).getTime()
       var years = Math.floor((now - birthday)/day/31/12)
-      this.age = years
+      return years
     }
   }
 })
