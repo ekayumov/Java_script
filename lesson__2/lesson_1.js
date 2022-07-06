@@ -11,20 +11,4 @@ function isCapitalized(str) {
 
 const name = "Name"
 
-const textMy = Object.create( {}, {
-  word: {
-    value: name,
-    writable: true,
-    configurable: true,
-    },
-  length: {
-    value: name.length,
-    writable: true,
-    configurable: true,
-  },
-  isCapitalized:{
-    value: isCapitalized(name),
-    writable: true,
-    configurable: true,
-  }
-})
+ let obj = {word: name, length: name.length, isCapitalized: isCapitalized(name)}
