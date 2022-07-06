@@ -1,12 +1,12 @@
 function isCapitalized(str) {
-  const firstChar = str.split('')[0];
-  const isAChar = new RegExp("^[a-zA-Z]+$");
+  const firstChar = str[0];
+  const letterRegExp = new RegExp("^[a-zA-Z]+$");
 
-  if (isAChar.test(firstChar) === false) {
+  if (!letterRegExp.test(firstChar)) {
     return false;
   }
 
-  return firstChar === firstChar.toUpperCase() ? true : false;
+  return firstChar === firstChar.toUpperCase();
 }
 
 const name = "Name"
