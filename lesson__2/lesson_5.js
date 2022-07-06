@@ -22,12 +22,8 @@ const employees = [
     }
 ]
 
-const mapCollbackSalary = function (item) {
-  return item.salary
-}
-
 function averageSalary(emp) {
-  return emp.map(mapCollbackSalary).reduce((a, b) => a + b, 0) / emp.length
+  return emp.map((item) => item.salary).reduce((a, b) => a + b, 0) / emp.length
 }
 
 function compareSalary(a, b) {
@@ -44,4 +40,4 @@ function filterEmployees(emp, minSalary, minAge){
 
 averageSalary(employees)
 sortBySalary(employees)
-filterEmployees(employees, 4500, 25){
+filterEmployees(employees, 4500, 25)

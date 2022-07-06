@@ -9,6 +9,6 @@ function isCapitalized(str) {
   return firstChar === firstChar.toUpperCase();
 }
 
-const name = "Name"
-
- let obj = {word: name, length: name.length, isCapitalized: isCapitalized(name)}
+function textMy(str) {
+  return {word: str, length: str.length, isCapitalized: isCapitalized(str)}
+}
