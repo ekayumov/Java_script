@@ -1,4 +1,4 @@
-let user = {
+const user = {
  age: 18,
  paid: true,
  blocked: false,
@@ -8,8 +8,8 @@ let user = {
 
 function valid(user) {
   if (user['age']>= 18 && user['age']<= 35) {
-    if (user['isAdmin'] == true ){true}
-    else if (user['paid']== true, user['blocked']== false, user['badUsername']== false) {true}
-    else {false}
-  } else {false}
+    if  (user.isAdmin) { return true}
+    else if (user.paid, !user.blocked, !user.badUsername) { return true}
+    else { return false}
+  } else { return false}
 }

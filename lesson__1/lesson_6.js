@@ -1,4 +1,4 @@
-let user = {
+const user = {
  age: 18,
  paid: true,
  blocked: false,
@@ -7,10 +7,11 @@ let user = {
 }
 
 function valid_tern(user) {
-  let age = user['age']>= 18 && user['age']<= 35
-  let paid = user['paid'] == true
-  let blocked = user['blocked']== false
-  let badUsername = user['badUsername']== false
-  let isAdmin = user['isAdmin'] == true
-  a = (isAdmin && age) || (age && paid && blocked && badUsername) ? true : false
+  const age = user.age >= 18 && user.age<= 35
+  const paid = user.paid
+  const blocked = user.blocked
+  const badUsername = user.badUsername
+  const isAdmin = user.isAdmin
+  a = (isAdmin && age) || (age && paid && !blocked && !badUsername) ? true : false
+  return a
 }
