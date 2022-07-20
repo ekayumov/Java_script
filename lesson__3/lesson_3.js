@@ -21,37 +21,37 @@
 
 
 const calculator = function () {
-  let historyArray = []
-  let operationsArray = {}
+  let calculatorHistory = []
+  let calculatorOperations = {}
 
   this.addOperation = (key, funct) => {
-        operationsArray[key] = funct
-        return "оператор '"+ key +"' cохранен"
+    calculatorOperations[key] = funct
+    return false
   }
 
   this.history = () => {
-        return historyArray
+    return calculatorHistory
   }
 
   this.operations = () => {
-        return operationsArray
+    return calculatorOperations
   }
 
   this.clearHistory = () => {
-        historyArray = []
-        return historyArray
+    calculatorHistory = []
+    return calculatorHistory
   }
 
   this.operation = (text) => {
     const arrayText = text.split(" ")
-    const namberFirst = Number(arrayText[0])
+    const numberFirst = Number(arrayText[0])
     const operator = arrayText[1]
-    const namberSecond = Number(arrayText[2])
-    if (operationsArray[operator]) {
-      historyArray.push({operation: operator, operands: [namberFirst, namberSecond]})
-      return operationsArray[operator](namberFirst, namberSecond)
+    const numberSecond = Number(arrayText[2])
+    if (calculatorOperations[operator]) {
+      calculatorHistory.push({operation: operator, operands: [numberFirst, numberSecond]})
+      return calculatorOperations[operator](numberFirst, numberSecond)
     }
-    else { return "оператор '" + operator + "' не найден"}
+    else { return false}
   }
 }
 
@@ -60,44 +60,8 @@ cal = new calculator()
 cal.history() // []
 cal.operations() // {}
 cal.operation("45 * 44")
-cal.addOperation('+', (a, b) => a + b) // оператор '+' cохранен
+cal.addOperation('+', (a, b) => a + b) // false
 cal.operations() // {"+", "(a, b) => a + b"}
 cal.operation("45 + 44") // 89
 cal.history() //[{operation: '+', operands: [45,44]}
-cal.operation("45 * 44") // оператор '*' не найден
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-calculator.operation('31 + 32')
-
-const operation function (text) {
-  const arrayText = text.split(" ")
-  const namberFirst = arrayText[0]
-  const operator = arrayText[1]
-  const namberSecond = arrayText[2]
-
-  operator
-}
-
-calculator = new Calc()
-
-const Cals = function() {
-  this.operation = ...
-  this.addOperation = ...
-  this.history = ...
-}
+cal.operation("45 * 44") // false

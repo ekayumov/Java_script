@@ -11,20 +11,18 @@
 
 const tiWi = function () {
   let boxOffice = 0
-  let сoncertArray = {}
+  const сoncerts = {}
 
   this.createEvent = (сoncert, price) => {
-    сoncertArray[сoncert] = {tickets_sold: [], price: price}
-  }
-  this.concertArr = () => {
-    return сoncertArray
+    сoncerts[сoncert] = {tickets_sold: [], price: price}
   }
 
   function getRandomInt(con) {
-    var min = Math.ceil(0);
-    var max = Math.floor(999999);
+    const min = Math.ceil(0);
+    const max = Math.floor(999999);
     number = Math.floor(Math.random() * (max - min) + min)
-    if (сoncertArray[con].tickets_sold.some(elem => elem === number)) {
+
+    if (сoncerts[con].tickets_sold.some(elem => elem === number)) {
       getRandomInt(con)
     }
     else {
@@ -34,15 +32,16 @@ const tiWi = function () {
 
   this.buyTicket = (сoncert) => {
     var n = getRandomInt(сoncert)
-    сoncertArray[сoncert].tickets_sold.push(n)
+    сoncerts[сoncert].tickets_sold.push(n)
   }
 
   this.returnTicket = (сoncert, ticket) => {
-    var myArray = сoncertArray[сoncert].tickets_sold
-    var tiketIndex = myArray.indexOf(ticket);
+    const ticketsCold = сoncerts[сoncert].tickets_sold
+    const tiketIndex = ticketsCold.indexOf(ticket);
+
     if (tiketIndex !== -1) {
-        myArray.splice(tiketIndex, 1);
-        boxOffice -= сoncertArray[сoncert].price
+        ticketsCold.splice(tiketIndex, 1);
+        boxOffice -= сoncerts[сoncert].price
     }
   }
 }
