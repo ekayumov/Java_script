@@ -19,14 +19,16 @@
 // calculator.clearHistory()
 // calculator.history() // []
 
-
-const calculator = function () {
+const Calculator = function () {
   let calculatorHistory = []
-  let calculatorOperations = {}
+  let calculatorOperations = {
+    "+": "(a, b) => a + b",
+    "-": "(a, b) => a - b"
+  }
 
   this.addOperation = (key, funct) => {
     calculatorOperations[key] = funct
-    return false
+    return true
   }
 
   this.history = () => {
@@ -56,12 +58,10 @@ const calculator = function () {
 }
 
 
-cal = new calculator()
+cal = new Calculator()
 cal.history() // []
 cal.operations() // {}
-cal.operation("45 * 44")
-cal.addOperation('+', (a, b) => a + b) // false
-cal.operations() // {"+", "(a, b) => a + b"}
+cal.operation("45 * 44") // false
+cal.operations() // {  "+": "(a, b) => a + b", "-": "(a, b) => a - b"}
 cal.operation("45 + 44") // 89
 cal.history() //[{operation: '+', operands: [45,44]}
-cal.operation("45 * 44") // false

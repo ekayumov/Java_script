@@ -9,7 +9,7 @@
 // как проданный, он должен быть удален из списка проданных и из кассы должна быть
 // вычтена соответствующая его цене сумма */
 
-const tiWi = function () {
+const TicketWindow = function () {
   let boxOffice = 0
   const сoncerts = {}
 
