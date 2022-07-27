@@ -28,7 +28,7 @@ function Human(name, lastName, location, phoneNumber) {
   this.callFriend = function() {return 'callFriend'}
 }
 
-const human_john = new Human("John", "Smith", "Russia", "+1234567890" )
+const humanJohn = new Human("John", "Smith", "Russia", "+1234567890" )
 
 function Employee (position, baseSalary, salaryCurrency, department) {
 	this.position = position
@@ -37,16 +37,23 @@ function Employee (position, baseSalary, salaryCurrency, department) {
 	this.department =  department
 	this.writeReport = function() { return 'writeReport' }
 	this.organizeMeeting = function () { return 'organizeMeeting'}
-  this.retire: function () {}
-  this.startVacation: function () {}
+  this.retire: function () { return "retire"}
+  this.startVacation: function () { return "startVacation"}
 }
 
-function EmployeeStatus (startDate, endDate) {
-	this.startDate = startDate
-	this.endDate = endDate
-  }
+function CurrentEmployees (startDate) {
+  this.startDate = startDate
+}
 
-const human_john = new Human("John", "Smith", "Russia", "+1234567890" )
-Employee.prototype = human_john
-const employer_john = new Employee("Senior engineer",  "10000", "$", "IT")
-EmployeeStatus.prototype = employer_john
+function  FormerEmployee (endDate) {
+	this.endDate = endDate
+}
+
+const humanJohn = new Human("John", "Smith", "Russia", "+1234567890" )
+
+Employee.prototype = humanJohn
+
+const employerJohn = new Employee("Senior engineer",  "10000", "$", "IT")
+
+CurrentEmployees.prototype = employerJohn
+FormerEmploye.prototype = employerJohn
