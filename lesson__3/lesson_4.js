@@ -31,7 +31,7 @@ const TicketWindow = function () {
   }
 
   this.buyTicket = (сoncert) => {
-    var n = getRandomInt(сoncert)
+    const n = getRandomInt(сoncert)
     сoncerts[сoncert].tickets_sold.push(n)
   }
 
