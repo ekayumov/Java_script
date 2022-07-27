@@ -20,26 +20,25 @@
 // Верфи и корабли должны создаваться с помощью функций-конструкторов.
 
 
-const Ship = function(full, collor) {
-  this.full = full // true / false
-  this.collor = collor
+const Ship = function( ucollor) {
+  this.unbroken = true // true / false сломан / не сломан
+  this.collor = collor // цвет
 }
 
-const MotorShip = function(enginePower, frameMaterial) {
-  this.enginePower = enginePower // Мощность двигателя
-  this.frameMaterial = frameMaterial // Материал корпуса
+const MotorShip = function(params) {
+  this.enginePower = params[:enginePower] // Мощность двигателя
+  this.frameMaterial = params[:frameMaterial] // Материал корпуса
 }
 
-const SailShip = function(mastCount, sailArea) {
-  this.mastCount = mastCount // Количество мачт
-  this.sailArea = sailArea // Общая площадь парусов
+const SailShip = function(params) {
+  this.mastCount = params[:mastCount] // Количество мачт
+  this.sailArea = params[:sailArea] // Общая площадь парусов
 }
 
-MotorShip.prototype = new Ship(true, "красный")
-SailShip.prototype = new Ship(true, "синий")
+MotorShip.prototype = new Ship("красный")
+SailShip.prototype = new Ship("синий")
 
-const Shipyard = function(type) {
-  const typeShipyard = type // MotorShip / SailShip
+const Shipyard = function() {
 
   this.paint = function(ship, color) {
     ship.color = color
@@ -47,30 +46,52 @@ const Shipyard = function(type) {
   }
 
   this.repair = function(ship) {
-    if (ship instanceof typeShipyard) {
-      ship.full = true
-      return ship
-    }
-    else {
-      return "не корректный тип коробля"
-    }
-  }
-
-  // сделано примитивно, просто передается массив параметров, хотя лучше реализовать через хэш
-  // это позволило бы не ограничиваться только двумя типами фверфей и двумя параметрами для ввода
-  this.build = function(params) {
-    return new typeShipyard(params[0], params[1])
+    ship.unbroken = true
+    return ship
   }
 
   this.swap = function(ship) {
     switch (true) {
-      case typeShipyard === MotorShip:
-          return new MotorShip(ship.engineHp, ship.frameMaterial)
-      case typeShipyard === SailShip:
-          return new SailShip(ship.mastCount, ship.sailArea)
+      case ship instanceof MotorShip:
+        return new MotorShip(ship.engineHp, ship.frameMaterial)
+      case ship instanceof SailShip:
+        return new SailShip(ship.mastCount, ship.sailArea)
     }
   }
 }
 
-motorShipyard = new Shipyard(MotorShip)
-sailShipyard = new Shipyard(SailShip)
+const MotorShipyard = function() {
+  this.build = function(params) {
+    return new MotorShip(params)
+  }
+
+  this.repair = function(ship) {
+    if (ship instanceof MotorShip) {
+      return Object.getPrototypeOf(this).repair(ship)
+    }
+    else {
+      return "не тот тип корабля"
+    }
+  }
+}
+
+const SailShipyard = function() {
+  this.build = function(params) {
+    return new SailShip(params)
+  }
+
+  this.repair = function(ship) {
+    if (ship instanceof SailShip) {
+      return Object.getPrototypeOf(this).repair(ship)
+    }
+    else {
+      return "не тот тип корабля"
+    }
+  }
+}
+
+MotorShipyard.prototype = new Shipyard()
+SailShipyard.prototype = new Shipyard()
+
+motorShipyard = new MotorShipyard()
+sailShipyard = new Shipyard()
