@@ -23,37 +23,82 @@ function Human(name, lastName, location, phoneNumber) {
   this.lastName = lastName
   this.location = location
   this.phoneNumber =  phoneNumber
-  this.eat = function() {return 'eat'}
-  this.sleep = function() {return 'sleep'}
-  this.callFriend = function() {return 'callFriend'}
 }
 
-const humanJohn = new Human("John", "Smith", "Russia", "+1234567890" )
+Human.prototype.eat = function() {return 'eat'}
+Human.prototype.sleep = function() {return 'sleep'}
+Human.prototypes.callFriend = function() {return 'callFriend'}
 
-function Employee (position, baseSalary, salaryCurrency, department) {
+function Employee (
+  name,
+  lastName,
+  location,
+  phoneNumber,
+  position,
+  baseSalary,
+  salaryCurrency,
+  department
+) {
+  Human.call(name, lastName, location, phoneNumber)
 	this.position = position
 	this.baseSalary = baseSalary
 	this.salaryCurrency = salaryCurrency
 	this.department =  department
-	this.writeReport = function() { return 'writeReport' }
-	this.organizeMeeting = function () { return 'organizeMeeting'}
-  this.retire: function () { return "retire"}
-  this.startVacation: function () { return "startVacation"}
 }
 
-function CurrentEmployees (startDate) {
+Employee.prototype.writeReport = function() { return 'writeReport' }
+Employee.prototype.organizeMeeting = function() { return 'organizeMeeting'}
+Employee.prototype.retire = function() { return "retire"}
+Employee.prototype.startVacation = function() { return "startVacation"}
+
+function CurrentEmployees (
+  name,
+  lastName,
+  location,
+  phoneNumber,
+  position,
+  baseSalary,
+  salaryCurrency,
+  department,
+  startDate
+) {
+  Employee.call(
+    name,
+    lastName,
+    location,
+    phoneNumber,
+    position,
+    baseSalary,
+    salaryCurrency,
+    department
+  )
   this.startDate = startDate
 }
 
-function  FormerEmployee (endDate) {
+function  FormerEmployee (
+  name,
+  lastName,
+  location,
+  phoneNumber,
+  position,
+  baseSalary,
+  salaryCurrency,
+  department,
+  endDate
+) {
+  Employee.call(
+    name,
+    lastName,
+    location,
+    phoneNumber,
+    position,
+    baseSalary,
+    salaryCurrency,
+    department
+  )
 	this.endDate = endDate
 }
 
-const humanJohn = new Human("John", "Smith", "Russia", "+1234567890" )
-
-Employee.prototype = humanJohn
-
-const employerJohn = new Employee("Senior engineer",  "10000", "$", "IT")
-
-CurrentEmployees.prototype = employerJohn
-FormerEmploye.prototype = employerJohn
+Employee.prototype = Object.create(Human.prototype)
+CurrentEmployees.prototype = Object.create(Employee.prototype)
+FormerEmployee.prototype = Object.create(Employee.prototype)
