@@ -24,9 +24,10 @@ class Figure {
 // c пешками реализуется проверка на "может съесть фигуру или нет"
 
 class Pawn extends Figure {
-    constructor(color, desk, cell) {
-        super(color, desk, cell)
+    constructor(color, cell) {
+        super(color, cell)
         let vector = [0,1]
+        this._vector = vector
     }
 
     _doubleMove = true
@@ -34,64 +35,57 @@ class Pawn extends Figure {
 
     get canEvolve() { return this._canEvolve }
 
-    moves() {
-        return vector
-    }
+    get moves() {   return this._vector }
 }
 
 class Horse extends Figure {
-    constructor(color, desk, cell) {
-        super(color, desk, cell)
+    constructor(color, cell) {
+        super(color, cell)
         let vector = [[2,1],[2,-1],[-2,1],[-2,-1],[1,2],[-1,2],[1,-2],[-1,-2]]
+        this._vector = vector
     }
 
-    moves() {
-        return vector
-    }
+    get moves() {   return this._vector }
 }
 
 class Bishop extends Figure {
-    constructor(color, desk, cell) {
-        super(color, desk, cell)
+    constructor(color, cell) {
+        super(color, cell)
         let vector = [[8,8],[8,-8],[-8,8],[-8,-8]]
+        this._vector = vector
     }
 
-    moves() {
-        return vector
-    }
+    get moves() {   return this._vector }
 }
 
 class Rook extends Figure {
-    constructor(color, desk, cell) {
-        super(color, desk, cell)
+    constructor(color, cell) {
+        super(color, cell)
         let vector = [[0,8],[0,-8],[8,0],[-8,0]]
+        this._vector = vector
     }
 
-    moves() {
-        return vector
-    }
+    get moves() {   return this._vector }
 }
 
 class Queen extends Figure {
-    constructor(color, desk, cell) {
-        super(color, desk, cell)
+    constructor(color, cell) {
+        super(color, cell)
         let vector =[[8,8],[8,-8],[8,8],[-8,8],[8,8],[8,-8],[-8,8],[-8,-8]]
+        this._vector = vector
     }
 
-    moves() {
-        return vector
-    }
+    get moves() {   return this._vector }
 }
 
 class King extends Figure {
-    constructor(color, desk, cell) {
-        super(color, desk, cell)
+    constructor(color, cell) {
+        super(color, cell)
         let vector =[[1,1],[1,-1],[1,1],[-1,1],[1,1],[1,-1],[-1,1],[-1,-1]]
+        this._vector = vector
     }
 
-    moves() {
-        return vector
-    }
+    get moves() {   return this._vector }
 }
 
 
