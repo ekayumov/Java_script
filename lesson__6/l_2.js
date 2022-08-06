@@ -13,5 +13,3 @@ function constructorArray(rootElement, myArray) {
     rootElement.append(li)
   }
 }
-
-// 16 строк немного сломали мозг))))
