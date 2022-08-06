@@ -2,7 +2,7 @@ function constructorArray(rootElement, myArray) {
   if (Array.isArray(content)) {
     const list = document.createElement('ul')
     content.forEach(element => {
-      constructorArrayl(list, element)
+      constructorArray(list, element)
     });
     rootElement.append(list)
   }

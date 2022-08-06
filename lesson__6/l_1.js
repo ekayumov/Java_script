@@ -6,7 +6,9 @@ function parseTemplate(element, myHash) {
     let el = node.children[i]
     if (el.hasAttribute("data-field")){
       let text = myHash[el.getAttribute("data-field")]
-      if (text == null){throw Error("error")}
+      if (!text){
+        throw Error("error")
+      }
       el.textContent = text
     }
   }
