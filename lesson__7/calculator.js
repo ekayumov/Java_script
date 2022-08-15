@@ -96,10 +96,12 @@ class Calculator {
   }
 
   addOperation(key, funct) {
+    let rot = document.getElementById("last-rot")
     let newButton = document.createElement("div");
     this.operations[key] = funct
     newButton.className = "button";
     newButton.innerHTML = `${key}`;
+    rot.appendChild(newButton)
   }
 
   init() {
