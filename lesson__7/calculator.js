@@ -22,6 +22,8 @@ class Calculator {
   constructor() {
     this.calculator = document.querySelector(".calculator");
     this.result = document.querySelector(".input-field");
+    this.commandEdit = document.querySelector('#command-edit')
+    this.commandEdit.addEventListener('submit', (e) => this.addOperation(e))
 
     this.currentOperand = null;
     this.previousOperand = null;
