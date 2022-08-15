@@ -44,7 +44,7 @@ class Calculator {
   }
 
   perform() {
-    this.currentOperand = this.o[this.currentOperation](+this.previousOperand,  +this.currentOperand);
+    this.currentOperand = this.operations[this.currentOperation](+this.previousOperand,  +this.currentOperand);
     this.result.innerHTML = this.currentOperand;
   }
 
