@@ -22,7 +22,7 @@ class Calculator {
   constructor() {
     this.calculator = document.querySelector(".calculator");
     this.result = document.querySelector(".input-field");
-    this.commandEdit = document.querySelector('#command-edit')
+    this.commandEdit = document.getElementById('command-edit')
     this.commandEdit.addEventListener('submit', (e) => this.addOperation(e))
 
     this.currentOperand = null;
@@ -95,7 +95,11 @@ class Calculator {
     }
   }
 
-  addOperation(key, funct) {
+   addOperation(params) {
+    params.preventDefault()
+    let form = params.target
+    let key = form.querySelector('input[name=key]').value
+    let funct = form.querySelector('textarea[name=funct]').value
     let rot = document.getElementById("last-rot")
     let newButton = document.createElement("div");
     this.operations[key] = funct
@@ -109,6 +113,9 @@ class Calculator {
     document.addEventListener("keydown", (e) => this.handleInput(e.key));
   }
 }
+
+const c = new Calculator();
+c.init();
 
 const c = new Calculator();
 c.init();
