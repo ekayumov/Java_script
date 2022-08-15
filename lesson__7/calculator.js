@@ -46,7 +46,6 @@ class Calculator {
   perform() {
     this.currentOperand = this.o[this.currentOperation](+this.previousOperand,  +this.currentOperand);
     this.result.innerHTML = this.currentOperand;
-    }
   }
 
   clear() {
@@ -94,7 +93,7 @@ class Calculator {
     }
   }
 
-  addOperation(key, funct)) {
+  addOperation(key, funct) {
     let newButton = document.createElement("div");
     this.operations[key] = funct
     newButton.className = "button";
@@ -102,7 +101,7 @@ class Calculator {
   }
 
   init() {
-    document.querySelector( ".calculato").addEventListener("click", (e) => this.handleInput(e.target.textContent));
+    document.querySelector( ".calculator").addEventListener("click", (e) => this.handleInput(e.target.textContent));
     document.addEventListener("keydown", (e) => this.handleInput(e.key));
   }
 }
