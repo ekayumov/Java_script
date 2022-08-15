@@ -35,10 +35,14 @@
     <div>
       <h3>Новый оператор</h3>
       <form id="command-edit">
+        <div>
           <label>Кнопка ("**", "//")</label>
           <input name="key" type="text" required />
+        </div>
+        <div>
           <label>Операция("(a, b) => a - b")</label>
-          <textarea name="funct"> </textarea>
+          <input name="funct" type="text" required />
+        </div>
           <button type="submit">Добавить</button>
       </form>
     </div>
