@@ -19,29 +19,29 @@ function Promise(funct) {
   let deferred = null
   let value = null
 
-  this.resolve = (newValue) => {
-    // if (theStateOfThePromise === "fulfilled"){
-    //   return
-    // }
-    theStateOfThePromise = "fulfilled"
-    value = newValue
+  function resolve(newValue) {
+    try {
+      if (newValue && typeof newValue.then === 'function') {
+        newValue.then(resolve, reject);
+        return;
+      }
+      theStateOfThePromise = 'resolved';
+      value = newValue;
 
-    if (deferred) {
-      handle(deferred);
+      if (deferred) { handle(deferred); }
+    } catch (err) {
+      reject(err);
     }
   }
 
-  this.reject = (reason) => {
-    // if (theStateOfThePromise === "fulfilled"){
-    //   return
-    // }
-    theStateOfThePromise =  "rejected"
-    value = reason
+    function reject(reason) {
+      theStateOfThePromise = 'rejected';
+      value = reason;
 
-    if (deferred) {
-      handle(deferred);
+      if (deferred) {
+        handle(deferred);
+      }
     }
-  }
 
   function handle(handler) {
     if (theStateOfThePromise === 'pending') {
