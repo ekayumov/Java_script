@@ -19,7 +19,7 @@ function Promise(funct) {
   let deferred = null
   let value = null
 
-  function resolve(newValue) {
+  this.resolve = (newValue) => {
     try {
       if (newValue && typeof newValue.then === 'function') {
         newValue.then(resolve, reject);
@@ -34,7 +34,7 @@ function Promise(funct) {
     }
   }
 
-    function reject(reason) {
+    this.reject = (reason) => {
       theStateOfThePromise = 'rejected';
       value = reason;
 
