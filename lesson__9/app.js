@@ -31,15 +31,15 @@ function updatePage(myInput, results) {
 	return results
 }
 
-function queryTimeout(gifRes, event) {
+function queryTimeout(gifRes, event, time) {
   queryTimeoutID = setTimeout((query) => {
 		giphyQuery(query).then((results) => updatePage(gifRes, results))
-	}, 500, event.target.value)
+	}, time, event.target.value)
 
 }
 
 input.addEventListener('input', (event) => {
 	clearTimeout(queryTimeoutID)
 	const gifResults = document.querySelector('.results')
-	queryTimeout(gifResults, event)
+	queryTimeout(gifResults, event, 500)
 })
