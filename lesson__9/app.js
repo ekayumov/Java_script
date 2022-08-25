@@ -1,4 +1,4 @@
-const API_KEY = "i3cMVYkFVKlY2qn7wfbmgIRQNGBj1roI"
+const API_KEY = "ByZKDsBLbrcV7KuitjfprBUt7kJ4nkXy"
 let queryCache = {};
 let input = document.getElementById("searchInput")
 let queryTimeoutID = undefined
