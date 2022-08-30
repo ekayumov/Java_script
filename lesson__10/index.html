@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta content="dark light" name="color-scheme" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.0.0/mocha.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.0.0/mocha.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.6/chai.min.js"></script>
+
+    <script>
+      mocha.setup('bdd');
+    </script>
+    <script>
+      var assert = chai.assert
+    </script>
+  </head>
+    <body>
+      <!-- Написать функцию, которая принимает массив чисел и возвращает сумму и количество положительных элементов массива -->
+      <script src="lesson10/lessons/sumPositives.js"></script>
+      <script src="lesson10/tests/sumPositives.test.js"></script>
+      <!--------------------------------------->
+
+      <!-- Реализовать функцию для фильтрации массива чисел по убыванию -->
+      <script src="lesson10/lessons/array_sort_desc.js"></script>
+      <script src="lesson10/tests/array_sort_desc.test.js"></script>
+      <!--------------------------------------->
+
+      <!-- Реализовать функцию для фильтрации массива по длине слов -->
+      <script src="lesson10/lessons/array_filter.js"></script>
+      <script src="lesson10/tests/array_filter.test.js"></script>
+      <!--------------------------------------->
+
+      <!-- Кэширование -->
+      <script src="lesson10/lessons/cache.js"></script>
+      <script src="lesson10/tests/cache.test.js"></script>
+      <!--------------------------------------->
+
+      <!-- Реализуйте функцию MoneyBox -->
+      <script src="lesson10/lessons/moneybox.js"></script>
+      <script src="lesson10/tests/moneybox.test.js"></script>
+      <!--------------------------------------->
+
+      <!-- Калькулятор -->
+      <script src="lesson10/lessons/calculator.js"></script>
+      <script src="lesson10/tests/calculator.test.js"></script>
+      <!--------------------------------------->
+
+      <!-- Калькулятор -->
+      <script src="lesson10/lessons/tickets.js"></script>
+      <script src="lesson10/tests/ticket_window.test.js"></script>
+      <!--------------------------------------->
+      <div id="mocha"></div>
+
+      <script>
+        mocha.run();
+      </script>
+  </body>
+</html>
