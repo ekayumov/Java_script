@@ -6,13 +6,22 @@
     <link rel="stylesheet" type="text/css" href="shess.css">
     <script src= "https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src= "https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script defer src="dist/main.fdf8782707c315691d01.js"></script><link href="dist/styles.fdf8782707c315691d01.css" rel="stylesheet"></head>
     <script src= "chess.js"></script>
 
     <title></title>
   </head>
   <body>
-    <div class="board">
+    <div id="changePawnPanel" class="hidden">
+        <h3>Выберите фигуру:</h6>
+        <div><input type="button" value="rook">Ладья</div>
+        <div><input type="button" value="horse">Конь</div>
+        <div><input type="button" value="bishop">Слон</div>
+        <div><input type="button" value="queen">Ферзь</div>
     </div>
+    <div class="game-divider">
+        <div id="desk" class="desk">
+        </div>
 
     <div class="game-wrapper">
       <form id="login">
@@ -39,19 +48,11 @@
           <div class="killed-figures-wrapper">
             <h5>Срубленные фигуры</h5>
             <div class="killed-figures">
-              <div class="whites">
+              <div id="killed-whites" class="whites">
                 <h6>Белые:</h6>
-                <img src="">
-                <img src="">
-                <img src="">
-                <img src="">
               </div>
-              <div class="blacks">
+              <div id="killed-blacks" class="blacks">
                 <h6>Черные:</h6>
-                <img src="">
-                <img src="">
-                <img src="">
-                <img src="">
               </div>
             </div>
           </div>
@@ -70,5 +71,6 @@
         </div>
       </div>
     </div>
+  </div>
   </body>
 </html>

@@ -1,3 +1,4 @@
+import Desk from "../desk"
 export default class BaseFigure {
     constructor(color, desk, cell) {
         this.color = color
@@ -9,5 +10,7 @@ export default class BaseFigure {
     get desk() { return this.desk }
     get cell() { return this.cell }
 
-    moves() {}
+    move(to) {
+        this.cell = to
+    }
 }

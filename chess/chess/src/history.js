@@ -7,6 +7,6 @@ export default class History {
         let moveElement = document.createElement('div')
         moveElement.classList.add('history-move')
         moveElement.textContent = `${from}:${to}`
-        this._historyContainer.append(moveElement)
+        this.history.append(moveElement)
     }
 }
