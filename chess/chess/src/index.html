@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Chess</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="shess.css">
+    <script src= "https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src= "https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script defer src="dist/main.fdf8782707c315691d01.js"></script><link href="dist/styles.fdf8782707c315691d01.css" rel="stylesheet"></head>
+    <script src= "chess.js"></script>
+
+    <title></title>
+  </head>
+  <body>
+    <div id="changePawnPanel" class="hidden">
+        <h3>Выберите фигуру:</h6>
+        <div><input type="button" value="rook">Ладья</div>
+        <div><input type="button" value="horse">Конь</div>
+        <div><input type="button" value="bishop">Слон</div>
+        <div><input type="button" value="queen">Ферзь</div>
+    </div>
+    <div class="game-divider">
+        <div id="desk" class="desk">
+        </div>
+
+    <div class="game-wrapper">
+      <form id="login">
+        <h3>Регистрация</h3>
+        <div class="input-wrapper">
+          <label for="gamer1">Имя первого игрока(белые):</label>
+          <input type="text" id="login_player1" />
+        </div>
+        <div class="input-wrapper">
+          <label for="gamer2">Имя второго игрока(черные):</label>
+          <input type="text" id="login_player2" />
+        </div>
+        <div class="input-wrapper">
+          <button>Начать</button>
+        </div>
+      </form>
+      <div class="game-container">
+        <div class="game-process">
+          <div class="turn">
+            <strong>Ход белых</strong>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="killed-figures-wrapper">
+            <h5>Срубленные фигуры</h5>
+            <div class="killed-figures">
+              <div id="killed-whites" class="whites">
+                <h6>Белые:</h6>
+              </div>
+              <div id="killed-blacks" class="blacks">
+                <h6>Черные:</h6>
+              </div>
+            </div>
+          </div>
+          <div id="history" class="history">
+            <h5>История ходов:</h5>
+            <div class="history-move">
+              E2:E4
+            </div>
+            <div class="history-move">
+              E2:E4
+            </div>
+            <div class="history-move">
+              E2:E4
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
