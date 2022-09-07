@@ -1,0 +1,30 @@
+{
+    "name": "thinknetika_js_course",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "build": "webpack --config webpack.config.js",
+      "webpack": "webpack",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/gpunker/thinknetika_js_course.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/gpunker/thinknetika_js_course/issues"
+    },
+    "homepage": "https://github.com/gpunker/thinknetika_js_course#readme",
+    "devDependencies": {
+      "css-loader": "^6.7.1",
+      "html-webpack-plugin": "^5.5.0",
+      "mini-css-extract-plugin": "^2.6.1",
+      "sass": "^1.54.5",
+      "sass-loader": "^13.0.2",
+      "webpack": "^5.74.0",
+      "webpack-cli": "^4.10.0"
+    }
+  }
